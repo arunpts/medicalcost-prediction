@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+           
+            body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-image: linear-gradient(to right,#DE6262,#FFB88C);
+			}
+            h2 {
+                color:black;
+				text-align: center;
+            }
+            input[type=number], select {
+  				width: 100%;
+  				padding: 12px 20px;
+  				display: block;
+  				border: 1px solid #ccc;
+  				border-radius: 4px;
+                box-sizing: border-box;  
+			}
+            form {
+                width: 100%;
+                margin: 0 auto;
+            }
+            input[type=submit] {
+        		width: 100%;
+        		background-color: black;
+        		color:white;
+                font-size: x-large;
+        		padding: 12px 20px;
+        		margin: 8px 0;
+    		    border: none;
+        		border-radius: 4px;
+        		cursor: pointer;
+            }
+            p,h3 {
+                text-align: center;
+            }
+            
+            footer {
+                position:fixed;
+                font-size: smaller;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Medical Insurance Costs Prediction</h2>
+
+        <form action="{{ url_for('predict')}}" method="post" style="width: 300px;margin: 0px auto;">
+            <input type="number" name="age" placeholder="Age" required><br>
+            <select name="sex" required>
+                <option disabled selected value>Sex</option>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select><br>
+            <input type="number" name="bmi" placeholder="BMI" required><br>
+            <input type="number" name="children" placeholder="Children" required><br>
+            <select name="smoker" required>
+                <option disabled selected value>Smoker</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br>
+            <select name="region" required>
+                <option disabled selected value>Region</option>
+                <option value="1">Southwest</option>
+                <option value="2">Southeast</option>
+                <option value="3">Northwest</option>
+                <option value="4">Northeast</option>
+            </select><br>
+
+            <input type="submit" value="Predict">
+        </form>
+            <h3>{{ prediction_text }}</h3>
+            
+        
+        <footer>
+            <p>CREATED BY : ARUN PRAKASH</p>
+        </footer>
+    </body>
+</html>
